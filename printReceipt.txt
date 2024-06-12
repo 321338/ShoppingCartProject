@@ -1,0 +1,9 @@
+5 x Pizza =  £50.0
+5 x Chips =  £25.0
+3 x Drink =  £6.0
+
+      Total  =  £81.0
+
+
+        Thank you
+     Please come again
