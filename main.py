@@ -115,3 +115,70 @@ for x in productDictionary:
 print ("\n      Total  =  £", runTotal)
 print ("\n\n\n        Thank you") 
 print("\n     Please come again")
+
+
+
+
+#davids code
+
+print ("These are the avalible items and prices\n")
+
+#display list
+print ("Code   Product    Price\n")
+
+#directory of availible products, price in pence and number availible
+productDictionary = {
+  "001":["Pizza","1000","20"],
+  "002":["Chips","500","20"],
+  "003":["Drink","200","100"]
+}
+#print out list of products and price
+
+
+
+for x in productDictionary:
+  #tempList is copy of list key x
+  tempList = productDictionary[x]
+  #tempPrice is price of relevant product/100 to display in £
+  tempPrice = int(tempList[1])/100
+  print(x,"  ", tempList[0],"    £",tempPrice)
+print()
+#take order
+order = {}
+total = 0
+
+for x in productDictionary:
+  tempString = productDictionary[x]
+  price = int(tempString[1])/100
+  maxQuantity = int(tempString[2])
+  print ("\nWould you like",tempString[0],"? enter y/n")
+  tempAnswer = input()
+  if tempAnswer != "y" and tempAnswer != "n":
+    print ("ERROR")
+    break 
+  elif tempAnswer == "y":
+    print("How many",tempString[0], "would you like?")
+    quantity = int(input())
+    if quantity > maxQuantity :
+      print ("Sorry we can only supply a maximum of ",maxQuantity)
+      quantity = maxQuantity
+    total += price * quantity
+    order[x] = quantity 
+
+  # This section asks the user if they want to order the product, prompts for quantity if yes, and handles invalid input.
+
+#print order
+
+
+print ("\nYour order is for :\n")
+# This section iterates through the productDictionary
+# If the product code is in the order dictionary it will print the quantity ordered, the product name and the price of the order for that product
+for x in productDictionary:
+  if x in order:
+    type = productDictionary[x]
+    print (order[x]," x ", type[0], " =  £",order[x]*int(productDictionary[x][1])/100)
+# This section prints the total price of the order
+print ("\n      Total  =  £", total)
+# This section prints thank you and please come again
+print ("\n\n\n        Thank you") 
+print("\n     Please come again")
